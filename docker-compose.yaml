@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db-cats-api:
+    image: postgres:12
+    restart: always
+    ports:
+      - 5444:5432
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: cats-api
+  app-cats-api:
+    image: gvozdetscky/spring-boot-docker:0.0.1-SNAPSHOT
+    ports:
+      - 8189:8080
+    environment:
+      DATASOURCE_HOST: localhost
+    depends_on:
+      - db-cats-api
