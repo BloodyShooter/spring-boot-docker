@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DATASOURCE_HOST:192.168.99.100}:5444/cats-api
+    username: admin
+    password: admin
+  jpa:
+    generate-ddl: true
